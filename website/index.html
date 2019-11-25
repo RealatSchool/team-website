@@ -10,6 +10,7 @@
 <meta name="description" content="Very wow" />
 <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
+<script src="/scripts.js"></script>
 <!--add when domain name is set up <link rel="canonical" href="" />-->
 <meta property="og:site_name" content="notPearl" />
 <meta property="og:type" content="website" />
@@ -36,7 +37,18 @@
 <meta name="theme-color" content="#ffffff">
 </head>
 <html>
-    <body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Resume</a>
+    </div>
+              
+    <!-- Use any element to open the sidenav -->
+    <span onclick="openNav()">open</span>
+              
+    <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+    <div id="main">
         <h1>notPearl</h1>
-    </body>
+    </div>
 </html>
