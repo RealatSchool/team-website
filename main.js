@@ -11,7 +11,7 @@ function respond(req,res) {
     if (req.url === "/") {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
-        client.get('index', function(err, reply) {
+        redisClient.get('index', function(err, reply) {
             var content = reply
         });
         res.end(template.replace("{{content}}", reply));
