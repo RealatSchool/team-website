@@ -37,6 +37,12 @@ const server = http.createServer((req, res) => {
     respond(req,res)
 });
 
+client.set('some-key','42',function(err) {
+  if (err) { 
+    throw err; /* in production, handle errors more gracefully */
+  }
+});
+
 server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });
