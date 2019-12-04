@@ -12,7 +12,7 @@
     },
     "main": "bindings.js",
     "scripts": {
-        "build": "node-gyp build",
+        "build": "node-gyp configure;node-gyp build",
         "install": "node-gyp rebuild",
         "start": "node ./main.js"
       },
