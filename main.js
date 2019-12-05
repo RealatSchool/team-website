@@ -37,10 +37,31 @@ const server = http.createServer((req, res) => {
     respond(req,res)
 });
 
-client.set('some-key','42',function(err) {
-  if (err) { 
-    throw err; /* in production, handle errors more gracefully */
-  }
+//get all files in a directory - recursive
+var getDirectories = function (src, callback) {
+    glob(src + '/**/*', callback);
+};
+
+//get all the files in the website directory
+getDirectories('website', function (err, res) {
+    if (err) {
+        console.log('Error', err);
+    } else {
+        var files = res;
+    }
+});
+
+//read all the files in the website directory and put them in redis
+files.forEach(function(value){
+    if (process.env.unloadable.indexOf(value) > -1) {
+        console.log('Not loading ' + value + ' because it is in unloadable');
+    } else {
+        client.set(value,fs.readFileSync('website/' + value, 'utf8');,function(err) {
+            if (err) { 
+                throw err; /* in production, handle errors more gracefully */
+            }
+        });
+    }
 });
 
 server.listen(port, hostname, () => {
